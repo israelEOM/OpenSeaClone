@@ -21,5 +21,5 @@ export const doodlesCollection = {
     num_owners: 4897,
     floor_price: 22.6,
   },
-  address: '0x8a90cab2b38dba80c64b7734e58ee1db38b8992e',
+  address: '0xb962B6fF51D08Bf64D7C84fc7bBe57DA981E9075',
 }
