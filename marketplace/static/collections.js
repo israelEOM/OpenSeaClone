@@ -1,16 +1,16 @@
 export const doodlesCollection = {
-  name: 'Doodles',
-  creator: 'Doodles_LLC',
+  name: 'Bay Ape Yanc Club',
+  creator: 'Israel_EOM',
   description:
-    'A community-driven collectibles project featuring art by Burnt Toast. Doodles come in a joyful range of colors, traits and sizes with a collection size of 10,000. Each Doodle allows its owner to vote for experiences and activations paid for by the Doodles Community Treasury.',
+    'Bay Ape Yanc Club is a collection of 10,000 unique Non-Fungible Tokens (NFTs) featuring various monkey characters. Each NFT has its own distinct design and rarity level, making them highly collectible and valuable. The collection was created for fans and collectors of NFTs, as well as enthusiasts of monkey-themed art and design.',
   isVerified: true,
   slug: 'doodles-official',
   banner_image_url:
-    'https://lh3.googleusercontent.com/svc_rQkHVGf3aMI14v3pN-ZTI7uDRwN-QayvixX-nHSMZBgb1L1LReSg1-rXj4gNLJgAB0-yD8ERoT-Q2Gu4cy5AuSg-RdHF9bOxFDw=s2500',
+    'https://i.seadn.io/gcs/files/74b220918f8d737a93468c235a750712.png?auto=format&w=1920',
   featured_image_url:
-    'https://lh3.googleusercontent.com/svc_rQkHVGf3aMI14v3pN-ZTI7uDRwN-QayvixX-nHSMZBgb1L1LReSg1-rXj4gNLJgAB0-yD8ERoT-Q2Gu4cy5AuSg-RdHF9bOxFDw=s300',
+    'https://i.seadn.io/gcs/files/3e7215f7c2addd4dfbd14e1cbc830c4d.png?auto=format&w=512',
   image_url:
-    'https://lh3.googleusercontent.com/7B0qai02OdHA8P_EOVK672qUliyjQdQDGNrACxs7WnTgZAkJa_wWURnIFKeOh5VTf8cfTqW3wQpozGedaC9mteKphEOtztls02RlWQ=s120',
+    'https://i.seadn.io/gcs/files/3e7215f7c2addd4dfbd14e1cbc830c4d.png?auto=format&w=128',
   discord_url: 'https://discord.gg/doodles',
   external_url: 'https://doodles.app',
   twitter_username: 'doodles',
