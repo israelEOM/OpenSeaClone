@@ -27,15 +27,15 @@ const style = {
   descriptionContainer: `max-w-3xl py-2 px-10 text-center text-gray-500`,
 }
 
-export default function Home() {
+export default function Home({ profile }) {
   const address = useAddress()
   const [collection] = useState(doodlesCollection)
   const router = useRouter()
   const { slug } = router.query
 
-  useEffect(() => {
-    if (!address) router.replace('/')
-  }, [address, router])
+  // useEffect(() => {
+  //   if (!address) router.replace('/')
+  // }, [address, router])
 
   useEffect(() => {
     if (!slug) return
@@ -77,7 +77,7 @@ export default function Home() {
                 </div>
 
                 <div className={style.collectionInfo}>
-                  <div className={style.title}>{collection?.name}</div>
+                  <div className={style.title}>{profile ? 'Your NTFs' : collection?.name}</div>
 
                   <div className={style.creatorInfoContainer}>
                     <div className={style.creator}>
@@ -90,7 +90,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <CollectionStats stats={collection?.stats} />
+                {!profile ? <CollectionStats stats={collection?.stats} /> : ''}
 
                 <div className={style.descriptionContainer}>
                   {collection?.description}
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Listings />
+          <Listings profile={profile} />
         </div>
       </TopNavbarLayout>
     </div>

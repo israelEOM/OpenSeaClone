@@ -12,10 +12,16 @@ import SearchInput from './SearchInput'
 // import NavMenus from './NavMenus'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
+import { useAddress, useMetamask } from '@thirdweb-dev/react'
+import { useRouter } from 'next/router'
 
 
 function Header() {
   const [mounted, setMounted] = useState(false)
+
+  const connectWithMetamask = useMetamask()
+  const address = useAddress()
+  const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
@@ -84,8 +90,17 @@ function Header() {
         </div> */}
 
         <div className='flex items-center space-x-6'>
-          <UserCircleIcon className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block' />
-          <CreditCardIcon className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block' />
+          {!address ? (
+            <CreditCardIcon 
+              onClick={() => connectWithMetamask()}
+              className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block'
+            />
+          ) : 
+            <UserCircleIcon
+              onClick={() => router.push(`/profile`)}
+              className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block'
+            />
+          }
           {renderThemeChanger()}
           <MagnifyingGlassIcon className='h-7 w-7 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white sm:hidden' />
           <Bars3Icon className='h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:hidden' />
