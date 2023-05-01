@@ -101,17 +101,17 @@ function Header() {
             //   className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block'
             // />
           ) : 
-            <div className='flex w-[220px] border-2 border-[#363840] text-[#363840] items-center cursor-pointer justify-center space-x-4 rounded-lg py-2' onClick={() => disconnect()}>
+            <div className='flex w-[220px] border-2 border-[#363840] text-[#363840] dark:border-gray-400 dark:text-gray-400 items-center cursor-pointer justify-center space-x-4 rounded-lg py-2' onClick={() => disconnect()}>
               <CreditCardIcon className='h-6 w-6' />
               <span className='text-lg font-semibold'>Disconnect wallet</span>
             </div>
           }
-          {/* {address ? 
+          {address ? 
             <UserCircleIcon
               onClick={() => router.push(`/profile`)}
               className='hidden h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:block'
             />
-          : ''} */}
+          : ''}
           {renderThemeChanger()}
           <MagnifyingGlassIcon className='h-7 w-7 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white sm:hidden' />
           <Bars3Icon className='h-8 w-8 cursor-pointer text-gray-600 transition-all hover:text-black dark:text-gray-300 hover:dark:text-white lg:hidden' />
