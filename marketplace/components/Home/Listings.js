@@ -33,7 +33,7 @@ const Listings = ({ profile }) => {
     }
 
     getListings()
-  }, [])
+  }, [profile])
 
   return (
     <div className={style.wrapper}>

@@ -47,6 +47,8 @@ function NFT() {
       const sdk = ThirdwebSDK.fromSigner(signer)
       const contract = await sdk.getContract(process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT_ADDRESS)
       await contract.directListings.buyFromListing(tokenID, 1, address)
+
+      router.replace('/')
     } catch (error) {
       console.error(error)
     }

@@ -27,9 +27,9 @@ const style = {
   descriptionContainer: `max-w-3xl py-2 px-10 text-center text-gray-500`,
 }
 
-export default function Home({ profile }) {
+export default function Home({ profile = false }) {
   const address = useAddress()
-  const [collection] = useState(doodlesCollection)
+  const [collection, setCollection] = useState(doodlesCollection)
   const router = useRouter()
   const { slug } = router.query
 
