@@ -53,10 +53,10 @@ const NFTSalesInfo = ({ price, buyNFT }) => {
             <AiOutlineShoppingCart className={style.buttonIcon} />
             <span className='text-lg font-semibold'>Buy now</span>
           </div>
-          <div className={`${style.button} ${style.offerButton}`}>
+          {/* <div className={`${style.button} ${style.offerButton}`}>
             <BsFillTagFill className={style.buttonIcon} />
             <span className='text-lg font-semibold'>Make offer</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

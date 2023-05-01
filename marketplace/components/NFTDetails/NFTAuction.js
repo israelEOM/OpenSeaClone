@@ -16,14 +16,14 @@ const style = {
   mediumFont: `font-medium`,
   priceContainer: `flex items-center space-x-2`,
   price: `text-3xl font-bold`,
-  buttonsContainer: `flex space-x-4`,
+  buttonsContainer: `flex justify-center space-x-4`,
   button: `flex w-[50%] items-center cursor-pointer justify-center space-x-4 rounded-lg py-2 text-white`,
   purchaseButton: `bg-blue-500`,
   offerButton: `border border-black bg-[#363840]`,
   buttonIcon: `h-6 w-6`,
 }
 
-const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) => {
+const NFTAuction = ({ price, symbol, assetContractAddress = null, tokenID = null }) => {
   const signer = useSigner()
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
@@ -49,7 +49,7 @@ const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) =>
 
     setIsLoading(true)
     try {
-      console.log({ ...form, endTimestamp: new Date(Date.now() + parseInt(e.target.value) * 24 * 60 * 60 * 1000) })
+      console.log({ ...form, endTimestamp: new Date(Date.now() + parseInt(form.endTimestamp) * 24 * 60 * 60 * 1000) })
       const sdk = ThirdwebSDK.fromSigner(signer)
       const contract = await sdk.getContract(process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT_ADDRESS)
       const tx = await contract.englishAuctions.createAuction({ ...form, endTimestamp: new Date(Date.now() + parseInt(form.endTimestamp) * 24 * 60 * 60 * 1000) });
@@ -58,7 +58,7 @@ const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) =>
       console.log(tx, receipt, id)
 
       setIsLoading(false)
-      router.replace('/profile')
+      router.replace('/')
     } catch (error) {
       setIsLoading(false)
       console.error(error)
@@ -67,34 +67,54 @@ const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) =>
 
   return (
     <form onSubmit={handleSubmit} className={style.wrapper}>
-      <div className={style.header}>
-        <div className={style.headerContent}>
+      {assetContractAddress ? 
+        <div className={style.header}>
+          <div className={style.headerContent}>
 
-          <div className={style.greyText}>
-            {assetContractAddress}
+            <div className={style.greyText}>
+              {assetContractAddress} - {tokenID}
+            </div>
           </div>
         </div>
-      </div>
+      : ''}
 
       <div className={style.mainContainer}>
         <div className={style.priceInfoContainer}>
+          {!assetContractAddress ? 
+            <>
+              <div className='flex-1 sm:block'>
+                <Input 
+                  label={`Contract Address`}
+                  placeholder='e.g.: 0x...'
+                  type='text'
+                  handleChange={(e) => handleFormFieldChange('assetContractAddress', e)}
+                />
+              </div>
+              <div className='flex-1 sm:block'>
+                <Input 
+                  label={`Token Id`}
+                  placeholder='e.g.: 5'
+                  type='number'
+                  handleChange={(e) => handleFormFieldChange('tokenId', e)}
+                />
+              </div>
+            </>
+          : ''}
           <div className='flex-1 sm:block'>
             <Input 
               label={`Buyout Price Per Token (in ${symbol})`}
               placeholder='e.g.: 10'
               type='number'
               step={0.25}
-              value={form.buyoutBidAmount}
               handleChange={(e) => handleFormFieldChange('buyoutBidAmount', e)}
             />
           </div>
-          <div className='flex-1 sm:block mt-6'>
+          <div className='flex-1 sm:block'>
             <Input
               label='Minimum Bid Amount'
               placeholder='e.g.: 1.5'
               type='number'
               step={0.25}
-              value={form.minimumBidAmount}
               handleChange={(e) => handleFormFieldChange('minimumBidAmount', e)}
             />
           </div>
@@ -104,7 +124,6 @@ const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) =>
               placeholder='e.g.: 2 days'
               type='number'
               step={1}
-              value={form.endTimestamp}
               handleChange={(e) => handleFormFieldChange('endTimestamp', e)}
             />
           </div>
@@ -112,7 +131,6 @@ const NFTAuction = ({ price, symbol, assetContractAddress, tokenID, buyNFT }) =>
 
         <div className={style.buttonsContainer}>
           <button
-            onClick={buyNFT}
             type='submit'
             className={`${style.button} ${style.purchaseButton}`}
           >

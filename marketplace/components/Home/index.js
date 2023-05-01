@@ -10,7 +10,7 @@ import { doodlesCollection } from '../../static/collections'
 import Listings from './Listings'
 
 const style = {
-  wrapper: `flex flex-col dark:bg-[#202226] relative flex flex-col`,
+  wrapper: `flex flex-col dark:bg-[#202226] relative flex flex-col pt-7`,
   container: `relative flex h-[650px] flex-col`,
   bannerContainer: `absolute h-1/3 w-full object-center`,
   banner: `object-cover object-center`,
@@ -54,7 +54,7 @@ export default function Home({ profile = false }) {
 
       <TopNavbarLayout>
         <div className={style.wrapper}>
-          <div className={style.container}>
+          {/* <div className={style.container}>
             <div className={style.bannerContainer}>
               <Image
                 className={style.banner}
@@ -97,7 +97,7 @@ export default function Home({ profile = false }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <Listings profile={profile} />
         </div>

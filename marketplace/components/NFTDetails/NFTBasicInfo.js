@@ -21,7 +21,7 @@ const NFTBasicInfo = ({ name }) => {
   return (
     <div>
       <div className={style.topContainer}>
-        <div className={style.collectionTitle}>Doodles</div>
+        <div className={style.collectionTitle}>Test</div>
 
         <div className={style.actionItems}>
           {actionItems.map((item, index) => (
@@ -34,9 +34,9 @@ const NFTBasicInfo = ({ name }) => {
 
       <div className={style.assetTitle}>{name}</div>
 
-      <div className={style.subInfoContainer}>
+      {/* <div className={style.subInfoContainer}>
         <NFTSubInfo />
-      </div>
+      </div> */}
     </div>
   )
 }
