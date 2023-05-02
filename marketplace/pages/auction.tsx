@@ -43,7 +43,7 @@ function NFT() {
             </div> */}
 
             <div className={style.rightContainer}>
-              <div className={style.nftTitle}>Put your NFT on a Auction!</div>
+              <div className={style.nftTitle}>Put your NFT on Auction!</div>
 
               <div className={style.buyoutContainer}>
                 <NFTAuction
