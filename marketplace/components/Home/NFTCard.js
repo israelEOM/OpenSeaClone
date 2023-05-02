@@ -60,7 +60,7 @@ const NFTCard = ({ listing, profile }) => {
           <div className={style.auctionContainer}>
             <AiFillPlusCircle className={style.heartIcon} />
             <div className={style.auctionLabel}>
-              Create Auction
+              Put on a Auction
             </div>
           </div>
         ) : ''}
