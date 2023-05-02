@@ -55,10 +55,10 @@ function NFT() {
   }
 
   const style = {
-    wrapper: `h-[100vh] mx-auto flex max-w-2xl flex-col space-y-4 p-4 dark:bg-[#202226] lg:max-w-none lg:py-8 lg:px-24`,
+    wrapper: `mx-auto mb-md flex max-w-2xl flex-col space-y-4 p-4 dark:bg-[#202226] lg:max-w-none lg:py-8 lg:px-24`,
     nftContainer: `flex flex-col lg:flex-row lg:space-x-4`,
     leftContainer: `flex flex-col space-y-4`,
-    leftElement: `hidden lg:block`,
+    leftElement: `lg:block`,
     rightContainer: `flex flex-1 flex-col space-y-4`,
     buyoutContainer: `flex-1,`,
   }
