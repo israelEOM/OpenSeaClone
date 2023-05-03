@@ -60,7 +60,7 @@ function Header() {
       href: '/',
     },
     {
-      name: 'Auction NTF',
+      name: 'Auction NFT',
       href: '/auction',
     },
     // {
